@@ -1,5 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from './state/store.js';
 
 class App extends React.Component {
 	constructor(props) {
@@ -7,7 +9,11 @@ class App extends React.Component {
 	}
 
 	render() {
-		return <p>Hello World</p>;
+		return (
+			<Provider store={store}>
+				<p>Hello World</p>
+			</Provider>
+		);
 	}
 }
 
