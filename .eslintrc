@@ -33,6 +33,7 @@
         "guard-for-in": 0,
         "import/no-extraneous-dependencies": 0,
         "no-useless-constructor": 0,
+        "react/jsx-indent": [2, 'tab'],
         "import/extensions": ["error", "ignorePackages"],
         "object-curly-newline": ["error", {"consistent":true}],
         "space-before-function-paren": ["error", "never"],
