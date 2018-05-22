@@ -36,7 +36,7 @@
         "import/extensions": ["error", "ignorePackages"],
         "object-curly-newline": ["error", {"consistent":true}],
         "space-before-function-paren": ["error", "never"],
-        "indent": ["error", "tab", {"MemberExpression": "off"}],
+        "indent": ["error", "tab", {"MemberExpression": "off", "SwitchCase": 1}],
         "brace-style": ["error", "stroustrup"]
     }
 
