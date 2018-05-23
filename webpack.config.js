@@ -10,6 +10,7 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json'],
+
 	},
 	module: {
 		rules: [
@@ -29,5 +30,12 @@ module.exports = {
 				loader: 'babel-loader',
 			},
 		],
+	},
+	devServer: {
+		contentBase: path.resolve(__dirname, 'dist'),
+		publicPath: '/js/',
+		port: 8080,
+		host: 'localhost',
+		historyApiFallback: true,
 	},
 };

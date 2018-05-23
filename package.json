@@ -6,7 +6,8 @@
 		"build:js": "webpack",
 		"watch:js": "npm run build:js -- --watch",
 		"build:css": "node-sass ./source/css/style.scss ./dist/css/style.css --include-path node_modules/foundation-sites/scss",
-		"watch:css": "npm run build:css && npm run build:css -- --watch --recursive"
+		"watch:css": "npm run build:css && npm run build:css -- --watch --recursive",
+		"run:server": "webpack-dev-server"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",
@@ -28,9 +29,11 @@
 	},
 	"dependencies": {
 		"foundation-sites": "^6.4.4-rc1",
+		"jquery": "^3.3.1",
 		"react": "^16.3.2",
 		"react-dom": "^16.3.2",
 		"react-redux": "^5.0.7",
+		"react-router-dom": "^4.2.2",
 		"redux": "^4.0.0"
 	}
 }
