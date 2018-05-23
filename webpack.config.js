@@ -10,7 +10,9 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.json'],
-
+		alias: {
+			config: path.resolve(__dirname, 'config/config.js'),
+		},
 	},
 	module: {
 		rules: [
