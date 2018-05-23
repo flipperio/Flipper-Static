@@ -1,0 +1,77 @@
+.site-nav {
+	padding: $global-padding-small;
+	font-weight: $global-weight-bold;
+	box-shadow: 0 8px 8px -8px rgba($dark-gray, 0.5);
+
+	&-toggle-bar {
+		background-color: $white;
+		display:flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: $global-menu-padding;
+		button {
+			color: $primary-color;
+			font-weight: $global-weight-bold;
+		}
+	}
+
+	// holds multiple .site-nav elements
+	&-group {
+
+	}
+
+
+	// contains actual nav content
+	&__bar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 auto;
+		max-width: $global-width-sub;
+
+		ul {
+			background-color: $transparent;
+		}
+
+		@include breakpoint(medium) {
+			width: 80%;
+		}
+	}
+
+	ul {
+		@include menu-base;
+		@include menu-icons;
+		@include menu-icon-position;
+		@include menu-direction(vertical);
+		@include breakpoint(medium) {
+			@include menu-direction(horizontal);
+		}
+	}
+
+	li a {
+		color: $dark-gray;
+		&:hover {
+			color: $primary-color;
+		}
+	}
+
+	li.is-active {
+		font-size: 110%;
+		font-weight:bolder;
+	}
+
+	&--grand {
+		@include breakpoint(medium) {
+			background-color: $primary-color;
+			li {
+				padding-right: $global-padding;
+			}
+			li a {
+				color: $white;
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+	}
+}

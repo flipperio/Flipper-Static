@@ -1,17 +1,6 @@
-@import 'settings';
+@import 'partials/manifest';
 @import 'foundation';
 @include foundation-everything;
-
-html, body {
-	width: 100%;
-}
-html {
-	height: 100%;
-}
-body {
-	min-height: 100%;
-}
-
-* {
-	box-sizing: border-box;
-}
+@import 'fonts/manifest';
+@import 'components/manifest';
+@import 'base';

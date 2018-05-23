@@ -6,7 +6,7 @@
 		"build:js": "webpack",
 		"watch:js": "npm run build:js -- --watch",
 		"build:css": "node-sass ./source/css/style.scss ./dist/css/style.css --include-path node_modules/foundation-sites/scss",
-		"watch:css": "npm run build:css && npm run build:css -- --watch --recursive",
+		"watch:css": "npm run build:css && npm run build:css -- --watch ./source/css/ --recursive",
 		"run:server": "webpack-dev-server"
 	},
 	"devDependencies": {

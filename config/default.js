@@ -5,16 +5,19 @@
 export default {
 	siteMap: [
 		{
-			label: 'Homes',
+			label: 'Home',
 			path: '/',
+			icon: 'icon-home-full',
 		},
 		{
 			label: 'Guide',
 			path: '/guide',
+			icon: 'icon-book-full',
 		},
 		{
 			label: 'Wall',
-			path: '/wall',
+			path: '/wall/main',
+			icon: 'icon-broadcast',
 		},
 	],
 

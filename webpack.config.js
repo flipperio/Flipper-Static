@@ -12,6 +12,7 @@ module.exports = {
 		extensions: ['.js', '.jsx', '.json'],
 		alias: {
 			config: path.resolve(__dirname, 'config/config.js'),
+			state: path.resolve(__dirname, 'source/js/state'),
 		},
 	},
 	module: {
@@ -37,7 +38,7 @@ module.exports = {
 		contentBase: path.resolve(__dirname, 'dist'),
 		publicPath: '/js/',
 		port: 8080,
-		host: 'localhost',
+		host: '0.0.0.0',
 		historyApiFallback: true,
 	},
 };
