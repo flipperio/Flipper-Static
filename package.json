@@ -1,12 +1,13 @@
 {
+	"name": "flipper-static",
 	"private": true,
 	"scripts": {
 		"run:lint": "esw ./**/*.{js,jsx}",
 		"watch:lint": "npm run run:lint -- --watch",
 		"build:js": "webpack",
 		"watch:js": "npm run build:js -- --watch",
-		"build:css": "node-sass ./source/css/style.scss ./dist/css/style.css --include-path node_modules/foundation-sites/scss",
-		"watch:css": "npm run build:css && npm run build:css -- --watch ./source/css/ --recursive",
+		"build:css": "node-sass ./source/css/style.scss ./dist/css/build/style.css --include-path node_modules/foundation-sites/scss",
+		"watch:css": "npm run build:css && npm run build:css -- --watch ./source/css/ --recursive ./source/css/",
 		"run:server": "webpack-dev-server"
 	},
 	"devDependencies": {
@@ -15,6 +16,7 @@
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-react": "^6.24.1",
+		"dotenv-safe": "^5.0.1",
 		"eslint": "^4.19.1",
 		"eslint-config-airbnb": "^16.1.0",
 		"eslint-loader": "^2.0.0",
@@ -28,8 +30,11 @@
 		"webpack-dev-server": "^3.1.4"
 	},
 	"dependencies": {
+		"ajv": "^6.5.0",
+		"event-emitter": "^0.3.5",
 		"foundation-sites": "^6.4.4-rc1",
 		"jquery": "^3.3.1",
+		"prop-types": "^15.6.1",
 		"react": "^16.3.2",
 		"react-dom": "^16.3.2",
 		"react-redux": "^5.0.7",
