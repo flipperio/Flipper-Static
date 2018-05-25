@@ -1,6 +1,9 @@
+# Temp Backups
+BUPS/
+
 # Bundled files
-dist/js/index.js
-dist/css/style.css
+dist/js/build/
+dist/css/build/
 
 # Logs
 logs
