@@ -1,45 +1,40 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events, react/prop-types */
 import 'foundation-sites/js/entries/foundation.js';
 import $ from 'jquery';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import actions from 'state/actions/index.js'; // eslint-disable-line import/no-unresolved
-import config from 'config'; // eslint-disable-line import/no-unresolved
+import config from 'config';
+import WithWallState from 'js/utils/WithWallState.js';
 
 class CategoryNav extends React.Component {
 	constructor(props) {
 		super(props);
 		this.ref = React.createRef();
-		this.setCategoryState = this.setCategoryState.bind(this);
 	}
 
 	componentDidMount() {
 		$(this.ref.current).foundation();
 	}
 
-	setCategoryState(category) {
-		// eslint-disable-next-line react/prop-types
-		this.props.setCategory(category.toLowerCase());
+	createCategoryLink(category) {
+		const categoryLink = `/wall/${category.toLowerCase()}`;
+		const clickAction = () => this.props.setWallState(category, this.props.wall.mode);
+
+		let linkClass = '';
+		if (this.props.match.params.category.toLowerCase() === category.toLowerCase()) {
+			linkClass = 'is-active';
+		}
+		return (
+			<li key={category} className={linkClass} onClick={clickAction}>
+				<Link to={categoryLink}>{category}</Link>
+			</li>
+		);
 	}
 
 	render() {
 		const categories = config.get().categories;
-
-		const categoryLinks = categories.map(function(category) {
-			const categoryLink = `/wall/${category.toLowerCase()}`;
-			const clickAction = () => this.setCategoryState(category);
-			let linkClass = '';
-			if (this.props.match.params.category.toLowerCase() === category.toLowerCase()) {
-				linkClass = 'is-active';
-			}
-			return (
-				<li key={category} className={linkClass} onClick={clickAction}>
-					<Link to={categoryLink}>{category}</Link>
-				</li>
-			);
-		}, this);
+		const categoryLinks = categories.map(this.createCategoryLink, this);
 
 		return (
 			<nav className='site-nav site-nav--grand' ref={this.ref}>
@@ -56,10 +51,16 @@ class CategoryNav extends React.Component {
 	}
 }
 
-function mapDispatchToProps(dispatch) {
-	return {
-		setCategory: category => dispatch(actions.setCategory(category)),
-	};
-}
+CategoryNav.propTypes = {
+	match: PropTypes.shape({
+		params: PropTypes.shape({
+			category: PropTypes.string.isRequired
+		}).isRequired
+	}).isRequired,
+	wall: PropTypes.shape({
+		mode: PropTypes.string.isRequired
+	}).isRequired,
+	setWallState: PropTypes.func.isRequired
+};
 
-export default connect(null, mapDispatchToProps)(CategoryNav);
+export default WithWallState(CategoryNav);

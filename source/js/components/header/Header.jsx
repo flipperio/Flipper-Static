@@ -10,16 +10,16 @@ import ControlNav from './ControlNav.jsx';
 class Header extends React.Component {
 	constructor(props) {
 		super(props);
-		this.ref = React.createRef();
+		this.headerRef = React.createRef();
 	}
 
 	componentDidMount() {
-		$(this.ref.current).foundation();
+		$(this.headerRef.current).foundation();
 	}
 
 	render() {
 		const header = (
-			<header ref={this.ref}>
+			<header ref={this.headerRef}>
 				<div className='site-nav-toggle-bar' data-responsive-toggle='main-header' data-hide-for='medium'>
 					<Link to='/'><img src='/images/logo.png' alt='' className='logo' /></Link>
 					<button data-toggle='main-header'>Menu</button>

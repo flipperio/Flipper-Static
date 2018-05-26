@@ -1,12 +1,12 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events, jsx-a11y/anchor-is-valid, no-script-url, react/prop-types */
 import 'foundation-sites/js/entries/foundation.js';
 import $ from 'jquery';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import actions from 'state/actions/index.js'; // eslint-disable-line import/no-unresolved
-import wallModes from 'state/enum/wallModes.js'; // eslint-disable-line import/no-unresolved
+import wallModes from 'state/enum/wallModes.js';
+import WithWallState from 'js/utils/WithWallState.js';
+import WithFormState from 'js/utils/WithFormState.js';
 
 class ControlNav extends React.Component {
 	constructor(props) {
@@ -18,35 +18,37 @@ class ControlNav extends React.Component {
 		$(this.ref.current).foundation();
 	}
 
-	setWallMode(mode) {
-		// eslint-disable-next-line react/prop-types
-		this.props.setWallMode(mode);
+	createControlLink(name, modeEnum, iconName, altAction) {
+		let clickAction;
+		let linkClass = '';
+
+		if (modeEnum) {
+			clickAction = () => this.props.setWallState(this.props.wall.category, modeEnum);
+		}
+		else {
+			clickAction = altAction;
+		}
+		if (this.props.wall.mode === modeEnum) {
+			linkClass = 'is-active';
+		}
+		return (
+			<li key={name} onClick={clickAction} className={linkClass}>
+				<Link to="#">
+					<i className={iconName} />
+					<span>{name}</span>
+				</Link>
+			</li>
+		);
 	}
 
 	render() {
 		const controlLinks = [];
-		const addLink = (name, mode, iconName) => {
-			const clickAction = () => this.setWallMode(mode);
-			let linkClass = '';
-
-			if (this.props.wallMode === mode) {
-				linkClass = 'is-active';
-			}
-			const newLink = (
-				<li key={name} onClick={clickAction} className={linkClass}>
-					<Link to="#">
-						<i className={iconName} />
-						<span>{name}</span>
-					</Link>
-				</li>
-			);
-
-			controlLinks.push(newLink);
-		};
-
-		addLink('Recent', wallModes.RECENT, 'icon-spin-alt');
-		addLink('Updating', wallModes.UPDATING, 'icon-bolt');
-		addLink('Fire', wallModes.FIRE, 'icon-flame');
+		controlLinks.push(this.createControlLink('Recent', wallModes.RECENT, 'icon-spin-alt'));
+		// controlLinks.push(this.createControlLink('Updating', wallModes.UPDATING, 'icon-bolt'));
+		controlLinks.push(this.createControlLink('Fire', wallModes.FIRE, 'icon-flame'));
+		controlLinks.push(this.createControlLink('Post', null, 'icon-comments', () => {
+			this.props.setPostForm(this.props.wall.category);
+		}));
 
 		return (
 			<nav className='site-nav' ref={this.ref}>
@@ -63,14 +65,13 @@ class ControlNav extends React.Component {
 	}
 }
 
-function mapStateToProps(state) {
-	return { wallMode: state.wallMode };
-}
+ControlNav.propTypes = {
+	wall: PropTypes.shape({
+		category: PropTypes.string.isRequired,
+		mode: PropTypes.string.isRequired
+	}).isRequired,
+	setWallState: PropTypes.func.isRequired,
+	setPostForm: PropTypes.func.isRequired
+};
 
-function mapDispatchToProps(dispatch) {
-	return {
-		setWallMode: wallMode => dispatch(actions.setWallMode(wallMode)),
-	};
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ControlNav);
+export default WithWallState(WithFormState(ControlNav, false, true));
