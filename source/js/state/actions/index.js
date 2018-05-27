@@ -1,13 +1,16 @@
 import actionTypes from '../enum/actionTypes.js';
 
 export default {
-	setCategory: function(category) {
-		return { type: actionTypes.SET_CATEGORY, payload: { category } };
+	setWallState: function(category, mode) {
+		if (typeof category === 'string') {
+			category = category.toLowerCase();
+		}
+		return { type: actionTypes.SET_WALL_STATE, payload: { category, mode } };
 	},
-	setWallMode: function(mode) {
-		return { type: actionTypes.SET_WALL_MODE, payload: { mode } };
+	setPostForm: function(category, parentPost) {
+		return { type: actionTypes.SET_POST_FORM, payload: { category, parentPost } };
 	},
-	setPosting: function(isPosting, parentPost) {
-		return { type: actionTypes.SET_POSTING, payload: { isPosting, parentPost } };
-	},
+	setPostDisplay: function(post) {
+		return { type: actionTypes.SET_POST_DISPLAY, payload: { post } };
+	}
 };
