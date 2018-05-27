@@ -1,0 +1,82 @@
+
+.post-top-button {
+	@include post-style;
+	@include post-spacing;
+	@include post-borders-top;
+	width: 100%;
+	font-weight: $global-weight-bold;
+
+	&:hover {
+		background-color: $post-background-hover;
+		cursor: pointer;
+	}
+}
+
+.post {
+	@include post-full;
+	font-size: 0.8rem;
+
+	&--can-hover {
+		&:hover {
+			@include post-style-hover;
+			cursor: pointer;
+		}
+	}
+	&--large {
+		padding: $global-padding + 1;
+		@include breakpoint(medium) {
+			font-size: 130%;
+		}
+	}
+	&--preview {
+
+	}
+
+	&__content {
+
+	}
+
+	&__control {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__title {
+		font-size: 110%;
+		margin-bottom: $global-margin-small;
+		font-weight: $global-weight-bold;
+	}
+
+	&__body {
+
+	}
+
+	&__date {
+		font-size: 95%;
+		color: $dark-gray;
+	}
+
+	&__btn {
+		margin-right: $global-margin;
+		color: $dark-gray;
+		i {
+			margin-right: 0.2rem;
+		}
+		&--star {
+			i {
+				color: $star-color;
+			}
+			&:hover {
+				color: $star-color;
+			}
+		}
+		&--comment {
+			i {
+				color: $comment-color;
+			}
+			&:hover {
+				color: $comment-color;
+			}
+		}
+	}
+}

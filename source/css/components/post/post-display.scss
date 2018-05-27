@@ -1,0 +1,7 @@
+
+.post-display {
+	@extend .post-wall;
+	@include breakpoint(small down) {
+		margin-top: 0;
+	}
+}

@@ -1,0 +1,76 @@
+
+.post-form {
+	@extend .post-wall;
+	@include post-style;
+	@include breakpoint(small down) {
+		margin-top: 0;
+	}
+	@include breakpoint(medium) {
+		border-radius: $post-radius;
+	}
+
+	padding: 0;
+
+	&__title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-right: 1rem;
+		border-bottom: 1px solid $light-gray;
+
+		p {
+			flex-grow: 1;
+			text-align: center;
+			margin: 0;
+			font-weight: $global-weight-bold;
+			padding: $global-padding-small 0;
+		}
+		button {
+		}
+	}
+	&__input {
+		padding: $global-padding;
+		background-color: $post-form-color;
+
+		@include breakpoint(medium) {
+			border-radius: 0 0 $post-radius $post-radius;
+		}
+
+		button {
+			@extend .button;
+			font-weight: bold;
+			border-radius: $global-radius-large;
+			background-color: $post-form-color-darker;
+		}
+	}
+
+	&__error {
+		font-size: 0.8rem;
+		color: $dark-gray;
+		font-style: italic;
+	}
+	&__success {
+		text-align: center;
+		font-size: 1.2rem;
+		font-weight: $global-weight-bold;
+	}
+
+	form {
+	}
+	input {
+		font-weight: $global-weight-bold;
+		font-size: $post-input-font-size;
+		margin-bottom: 0;
+	}
+
+	textarea {
+		font-size: $post-input-font-size;
+		min-height: 8rem;
+		margin-bottom: 0;
+
+		@include breakpoint(medium) {
+			min-height: 6rem;
+		}
+	}
+
+}

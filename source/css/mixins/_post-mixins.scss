@@ -1,0 +1,23 @@
+
+@mixin post-style {
+	background-color: $post-background;
+}
+@mixin post-style-hover {
+	background-color: $post-background-hover;
+}
+@mixin post-spacing {
+	margin-top: $global-margin-minimal;
+	margin-bottom: $global-margin-minimal;
+	padding: $global-padding-small $global-padding;
+}
+@mixin post-borders-top {
+	border-radius: $post-radius $post-radius 0 0;
+}
+@mixin post-borders-bottom {
+	border-radius: 0 0 $post-radius $post-radius;
+}
+
+@mixin post-full {
+	@include post-style;
+	@include post-spacing;
+}

@@ -1,0 +1,11 @@
+.post-styled-tab {
+	@include post-style;
+	@include post-spacing;
+
+	&--top {
+		@include post-borders-top;
+	}
+	&--bottom {
+		@include post-borders-bottom;
+	}
+}
