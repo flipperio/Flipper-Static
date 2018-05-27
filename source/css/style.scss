@@ -1,4 +1,5 @@
 @import 'partials/manifest';
+@import 'mixins/manifest';
 @import 'foundation';
 @include foundation-everything;
 @import 'fonts/manifest';

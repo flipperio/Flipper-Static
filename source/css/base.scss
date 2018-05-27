@@ -30,6 +30,23 @@ button {
 /*******************
 ** MODULE
 *******************/
+.hide-display {
+	display: none;
+}
+.hide-visibility {
+	visibility: hidden;
+}
+.site-container {
+	width:100%;
+	max-width: $global-width;
+	margin-left: auto;
+	margin-right: auto;
+
+	&--small {
+		max-width: $global-width-small;
+	}
+}
+
 .logo {
 	width: 40px;
 	height: 40px;
@@ -40,5 +57,20 @@ button {
 	&:hover {
 		box-shadow: 0 0 5px 0px rgba($primary-color, 0.8);
 	}
+}
 
+.pointer-hover:hover {
+	cursor: pointer;
+}
+
+.not-found {
+	text-align: center;
+
+	&__content {
+		margin-top: $global-margin;
+	}
+
+	a {
+		@include button;
+	}
 }
