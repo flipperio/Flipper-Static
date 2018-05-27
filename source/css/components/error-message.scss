@@ -1,0 +1,9 @@
+
+.error-message {
+	margin: $global-margin 0;
+	font-weight: $global-weight-bold;
+	color: $alert-color;
+	@include breakpoint(medium) {
+		text-align: center;
+	}
+}

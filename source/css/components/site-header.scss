@@ -1,6 +1,7 @@
 .site-nav {
 	padding: $global-padding-small;
 	font-weight: $global-weight-bold;
+	background-color: $white;
 	box-shadow: 0 8px 8px -8px rgba($dark-gray, 0.5);
 
 	&-toggle-bar {
@@ -27,7 +28,7 @@
 		justify-content: space-between;
 		align-items: center;
 		margin: 0 auto;
-		max-width: $global-width-sub;
+		max-width: $global-width-small;
 
 		ul {
 			background-color: $transparent;
@@ -55,12 +56,16 @@
 		}
 	}
 
-	li.is-active {
-		font-size: 110%;
+	li.is-active a {
+		color: $primary-color;
 		font-weight:bolder;
 	}
 
 	&--grand {
+		li.is-active a {
+			$color: $primary-color;
+		}
+
 		@include breakpoint(medium) {
 			background-color: $primary-color;
 			li {
@@ -71,6 +76,10 @@
 				&:hover {
 					color: $white;
 				}
+			}
+			li.is-active a {
+				font-size: 110%;
+				color: $white;
 			}
 		}
 	}
