@@ -1,0 +1,32 @@
+
+.main-hero {
+	@include xy-grid(horizontal, true);
+	padding: 2rem;
+	background-color: white;
+
+	@include breakpoint(medium) {
+		margin-top: 12rem;
+		border-radius: 1rem;
+	}
+
+	.main-hero__cell {
+		@include xy-cell(12);
+		@include breakpoint(medium) {
+			@include xy-cell(6);
+		}
+	}
+
+	&__call-to-action {
+		@extend .main-hero__cell;
+		@include breakpoint (small down) {
+			margin-bottom: 2rem;
+		}
+	}
+	&__instructions {
+		@extend .main-hero__cell;
+
+		li {
+			margin-bottom: 1rem;
+		}
+	}
+}

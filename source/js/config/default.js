@@ -1,17 +1,17 @@
 const defaultConfig = {
 	siteMap: {
-		// home: {
-		// 	label: 'Home',
-		// 	defaultPath: '/',
-		// 	path: '/',
-		// 	icon: 'icon-home-full'
-		// },
-		// guide: {
-		// 	label: 'Guide',
-		// 	defaultPath: '/guide',
-		// 	path: '/guide',
-		// 	icon: 'icon-book-full'
-		// },
+		home: {
+			label: 'Home',
+			defaultPath: '/',
+			path: '/',
+			icon: 'icon-home-full'
+		},
+		about: {
+			label: 'About',
+			defaultPath: '/about',
+			path: '/about',
+			icon: 'icon-book-full'
+		},
 		wall: {
 			label: 'Wall',
 			defaultPath: '/wall/main',

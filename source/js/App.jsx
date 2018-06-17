@@ -4,7 +4,9 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import config from 'config';
 
 import store from './state/store.js';
+import Home from './pages/Home.jsx';
 import Wall from './pages/Wall.jsx';
+import About from './pages/About.jsx';
 import NotFound from './pages/NotFound.jsx';
 import ErrorBoundary from './ErrorBoundary.jsx';
 import Header from './components/header/Header.jsx';
@@ -21,7 +23,8 @@ function App() {
 						<Header />
 						<main>
 							<Switch>
-								<Route path='/' exact render={() => <Redirect to={siteMap.wall.defaultPath} />} />
+								<Route path='/' exact component={Home} />
+								<Route path='/about' exact component={About} />
 								<Route path='/wall' exact component={() => <Redirect to={siteMap.wall.defaultPath} />} />
 								<Route path={siteMap.wall.path} exact component={Wall} />
 								<Route path='/404' exact component={NotFound} />
