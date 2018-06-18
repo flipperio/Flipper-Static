@@ -18,8 +18,8 @@ function About() {
 					<div className='swig-swag__text'>
 						<h4>No Censorship</h4>
 						<p>
-							Express yourself without limit. Flipper will never discriminate, based on race or sex, religion or disability, political beliefs or ideology, moral or immoral character. Wheather your radical or a troll, you&#39;re welcome here..<br /><br />
-							<small><em>Spam, pornography, gore, and content strongly connected with or directly supporting terrorist organizations will not be permitted</em></small>
+							Express yourself without limit. Flipper will never discriminate, based on race or sex, religion or disability, political beliefs or ideology, moral or immoral character. Wheather you&#39;re a radical or a troll, you&#39;re welcome here..<br /><br />
+							<small><em>Spam, pornography, gore, and content strongly connected with or directly supporting terrorist organizations will not be permitted.</em></small>
 
 						</p>
 					</div>

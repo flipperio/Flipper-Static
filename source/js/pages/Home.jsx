@@ -9,13 +9,13 @@ function Home() {
 		<div className='site-container'>
 			<div className='main-hero'>
 				<div className='main-hero__call-to-action'>
-					<h4>A platform for open and free epxression</h4>
+					<h4>A platform for free and open epxression</h4>
 					<p>
 						Share your voice with the world now,
 						<br />
-						No censorship, no fear full anonymity.
+						No censorship, no fear, full anonymity.
 					</p>
-					<Link to={siteMap.wall.defaultPath} class='button'>Share Now</Link>
+					<Link to={siteMap.wall.defaultPath} className='button'>Share Now</Link>
 				</div>
 				<div className='main-hero__instructions'>
 					<h4>How It works</h4>
