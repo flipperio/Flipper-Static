@@ -44,7 +44,6 @@ class ControlNav extends React.Component {
 	render() {
 		const controlLinks = [];
 		controlLinks.push(this.createControlLink('Recent', wallModes.RECENT, 'icon-spin-alt'));
-		// controlLinks.push(this.createControlLink('Updating', wallModes.UPDATING, 'icon-bolt'));
 		controlLinks.push(this.createControlLink('Fire', wallModes.FIRE, 'icon-flame'));
 		controlLinks.push(this.createControlLink('Post', null, 'icon-comments', () => {
 			this.props.setPostForm(this.props.wall.category);

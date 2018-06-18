@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import config from 'config';
 
 import store from './state/store.js';
@@ -15,6 +15,7 @@ import PostForm from './components/post/modals/PostForm.jsx';
 
 function App() {
 	const siteMap = config.get().siteMap;
+
 	return (
 		<ErrorBoundary>
 			<Provider store={store}>
@@ -23,12 +24,11 @@ function App() {
 						<Header />
 						<main>
 							<Switch>
-								<Route path='/' exact component={Home} />
-								<Route path='/about' exact component={About} />
-								<Route path='/wall' exact component={() => <Redirect to={siteMap.wall.defaultPath} />} />
+								<Route path={siteMap.home.path} exact component={Home} />
+								<Route path={siteMap.about.path} exact component={About} />
 								<Route path={siteMap.wall.path} exact component={Wall} />
-								<Route path='/404' exact component={NotFound} />
-								<Redirect to='/404' />
+
+								<Route path='*' component={NotFound} />
 							</Switch>
 							<PostDisplay />
 							<PostForm />

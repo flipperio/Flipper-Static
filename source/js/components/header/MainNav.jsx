@@ -39,7 +39,7 @@ class MainNav extends React.Component {
 		return (
 			<nav className='site-nav'>
 				<div className='site-nav__bar'>
-					<Link to='/' className='show-for-medium'>
+					<Link to={siteMap.home.defaultPath} className='show-for-medium'>
 						<img className='logo' src='/images/logo.png' alt='' />
 					</Link>
 					<ul>

@@ -2,18 +2,21 @@ const defaultConfig = {
 	siteMap: {
 		home: {
 			label: 'Home',
+			basePath: '/',
 			defaultPath: '/',
 			path: '/',
 			icon: 'icon-home-full'
 		},
 		about: {
 			label: 'About',
+			basePath: '/about',
 			defaultPath: '/about',
 			path: '/about',
 			icon: 'icon-book-full'
 		},
 		wall: {
 			label: 'Wall',
+			basePath: '/wall',
 			defaultPath: '/wall/main',
 			path: '/wall/:category',
 			icon: 'icon-broadcast'

@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import config from 'config';
 
 function Home() {
+	const siteMap = config.get().siteMap;
+
 	return (
 		<div className='site-container'>
 			<div className='main-hero'>
@@ -12,24 +15,24 @@ function Home() {
 						<br />
 						No censorship, no fear full anonymity.
 					</p>
-					<Link to='/wall' class='button'>Share Now</Link>
+					<Link to={siteMap.wall.defaultPath} class='button'>Share Now</Link>
 				</div>
 				<div className='main-hero__instructions'>
 					<h4>How It works</h4>
 					<ul>
 						<li>
-								Select a <em>wall</em> to post under
+							Select a <em>wall</em> to post under
 							<br />
-								A <em>wall</em> is a collection of posts, grouped by category
+							A <em>wall</em> is a collection of posts, grouped by category
 						</li>
 						<li>
-								Click post and share something with the world
+							Click post and share something with the world
 						</li>
 						<li>
-								Find a post you like and <em>star</em> it to show your appreciation for it
+							Find a post you like and <em>star</em> it to show your appreciation for it
 						</li>
 						<li>
-								You can also comment on other posts
+							You can also comment on other posts
 							<br />
 							<em>But you can&#39;t comment on a comment</em>
 						</li>

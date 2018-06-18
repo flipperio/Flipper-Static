@@ -18,7 +18,9 @@ class CategoryNav extends React.Component {
 	}
 
 	createCategoryLink(category) {
-		const categoryLink = `/wall/${category.toLowerCase()}`;
+		const siteMap = config.get().siteMap;
+
+		const categoryLink = `${siteMap.wall.basePath}/${category.toLowerCase()}`;
 		const clickAction = () => this.props.setWallState(category, this.props.wall.mode);
 
 		let linkClass = '';
