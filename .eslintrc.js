@@ -5,7 +5,8 @@ module.exports = {
         'ecmaVersion': 6,
     },
     'env': {
-        'browser': true
+        'browser': true,
+        'jest': true
     },
     'extends': [
         'eslint-config-airbnb',

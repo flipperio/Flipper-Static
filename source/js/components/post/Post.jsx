@@ -137,4 +137,5 @@ Post.defaultProps = {
 	onDisplay: false
 };
 
+export { Post as BaseComponent };
 export default WithFormState(WithDisplayState(Post, false, true), false, true);

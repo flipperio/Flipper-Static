@@ -8,15 +8,20 @@
 		"watch:js": "npm run build:js -- --watch",
 		"build:css": "node-sass ./source/css/style.scss ./dist/css/build/style.css --include-path node_modules/foundation-sites/scss",
 		"watch:css": "npm run build:css && npm run build:css -- --watch ./source/css/ --recursive ./source/css/",
-		"run:server": "webpack-dev-server"
+		"run:server": "webpack-dev-server",
+		"test": "jest",
+		"watch:test": "jest --watchAll"
 	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",
+		"babel-jest": "^23.0.1",
 		"babel-loader": "^7.1.4",
 		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-react": "^6.24.1",
 		"dotenv-safe": "^5.0.1",
+		"enzyme": "^3.3.0",
+		"enzyme-adapter-react-16": "^1.1.1",
 		"eslint": "^4.19.1",
 		"eslint-config-airbnb": "^16.1.0",
 		"eslint-loader": "^2.0.0",
@@ -24,7 +29,9 @@
 		"eslint-plugin-jsx-a11y": "^6.0.3",
 		"eslint-plugin-react": "^7.8.2",
 		"eslint-watch": "^3.1.4",
+		"jest": "^23.1.0",
 		"node-sass": "^4.9.0",
+		"react-test-renderer": "^16.4.1",
 		"webpack": "^4.8.3",
 		"webpack-cli": "^2.1.3",
 		"webpack-dev-server": "^3.1.4"

@@ -41,6 +41,7 @@ module.exports = {
 		extensions: ['.js', '.jsx', '.json'],
 		alias: {
 			js: path.resolve(__dirname, 'source/js'),
+			srcjs: path.resolve(__dirname, 'source/js'),
 			config: path.resolve(__dirname, 'source/js/config/config.js'),
 			state: path.resolve(__dirname, 'source/js/state')
 		}
